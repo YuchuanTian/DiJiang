@@ -4,7 +4,7 @@
 <a href="https://arxiv.org/abs/2403.19928" alt="arXiv">
     <img src="https://img.shields.io/badge/arXiv-2403.19928-b31b1b.svg?style=flat" /></a>
 </p>
-<img src="./imgs/dijiang.png" alt="scheme" style="zoom: 30%;" />
+<div align=center><img src="./imgs/dijiang.png" alt="scheme" style="zoom: 10%;" />
 
 This is the official implementation of ["DiJiang: Efficient Large Language Models through Compact Kernelization"](https://arxiv.org/abs/2403.19928), a novel Frequency Domain Kernelization approach to linear attention. DiJiang is a mythical monster in Chinese tradition. It has six legs and four wings , and it is known for its capability to move quickly.
 
