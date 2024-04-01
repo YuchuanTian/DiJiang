@@ -1,0 +1,35 @@
+python -m torch.distributed.launch --use_env --nproc_per_node 1 --nnodes 1 --node_rank 0 --master_addr=127.0.0.1 train_pythia.py \
+  --model_name_or_path modeling/pythia-70M-dijiang \
+  --dataset_dir ./data/part_pile/21part/block-00-data/ \
+  --data_cache_dir ./part_pile/21part_cached/block-00-data_cached_finish/ \
+  --validation_split_percentage 0.00004 \
+  --per_device_train_batch_size 8 \
+  --per_device_eval_batch_size 8 \
+  --do_train \
+  --num_train_epochs 1 \
+  --seed 2032 \
+  --data_seed 2032 \
+  --lr_scheduler_type cosine \
+  --learning_rate 3e-4 \
+  --warmup_steps 1000 \
+  --weight_decay 0.1 \
+  --logging_strategy steps \
+  --save_strategy steps \
+  --save_steps 1000 \
+  --save_total_limit 10 \
+  --gradient_accumulation_steps 1 \
+  --preprocessing_num_workers 4 \
+  --block_size 2048 \
+  --output_dir ../output \
+  --overwrite_output_dir \
+  --evaluation_strategy "no" \
+  --report_to tensorboard \
+  --logging_dir ../tensorboard \
+  --logging_steps 1 \
+  --model_max_length 2048 \
+  --debug_mode False \
+  --bf16 True \
+  --ddp_find_unused_parameters True \
+  --adam_beta1 0.9 \
+  --adam_beta2 0.95 \
+  --eval_steps 5100000 \
