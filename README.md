@@ -1,26 +1,23 @@
-# 🐲DiJiang: Efficient Large Language Models through Compact Kernelization
+# DiJiang: Efficient Large Language Models through Compact Kernelization
 
 <p align="left">
 <a href="https://arxiv.org/abs/2403.19928" alt="arXiv">
     <img src="https://img.shields.io/badge/arXiv-2403.19928-b31b1b.svg?style=flat" /></a>
 </p>
+<img src="./imgs/dijiang.png" alt="scheme" style="zoom: 30%;" />
 
-This is the official implementation of ["DiJiang: Efficient Large Language Models through Compact Kernelization"](https://arxiv.org/abs/2403.19928), a novel Frequency Domain Kernelization approach to linear attention. DiJiang is a mythical monster 🐲 in Chinese tradition. It has six legs and four wings, and it is known for its capability to move quickly.
-
-
+This is the official implementation of ["DiJiang: Efficient Large Language Models through Compact Kernelization"](https://arxiv.org/abs/2403.19928), a novel Frequency Domain Kernelization approach to linear attention. DiJiang is a mythical monster in Chinese tradition. It has six legs and four wings , and it is known for its capability to move quickly.
 
 
 ![scheme](./imgs/scheme.png)
 
 🚀 In our work "DiJiang", we propose a fast linear attention approach that leverages the power of **Fast Discrete Cosine Transform (Fast DCT).** Theoretical analyses and extensive experiments demonstrate the speed advantage of our method.
 
+<img src="./imgs/dijiang_speed.png" alt="scheme" style="zoom: 35%;" />
+
 <img src="./imgs/experiments1.png" alt="scheme" style="zoom: 67%;" />
 
 <img src="./imgs/experiments2.png" alt="scheme" style="zoom: 67%;" />
-
-## Demo
-
-A demo will be released soon. Stay tuned! 
 
 ## Training
 
@@ -49,7 +46,12 @@ Important arguments to take care of:
 
 ```
 
-# Citation (in BibTex)
+## Future work (Stay Tuned!)
+- [x] Training code for **DiJiang**
+- [ ] Better inference code
+- [ ] Inference models
+
+## Citation (in BibTex)
 
 ```
 @misc{chen2024dijiang,
@@ -62,9 +64,11 @@ Important arguments to take care of:
 }
 ```
 
-# Acknowledgement
+## Acknowledgement
 
 We acknowledge the authors of the following repos:
+
+[DenseSSM (github)](https://github.com/WailordHe/DenseSSM)
 
 [Llama2 (huggingface.co)](https://huggingface.co/docs/transformers/main/model_doc/llama2#usage-tips)
 
