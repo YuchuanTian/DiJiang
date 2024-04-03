@@ -28,6 +28,27 @@ This is the official implementation of ["DiJiang: Efficient Large Language Model
 
 - Install required packages: ```pip install -r requirements.txt```
 
+- Download pre=trained model weights (i.e. ```pytorch_model.bin``` files in the original HuggingFace models) and place them in the corresponding DiJiang model folder (```e.g. modeling/pythia-70M-dijiang```).
+
+Links of pre-trained weights:
+
+```
+# Pythia-70M
+https://huggingface.co/EleutherAI/pythia-70m/resolve/main/pytorch_model.bin?download=true
+
+# Pythia-160M
+https://huggingface.co/EleutherAI/pythia-160m/resolve/main/pytorch_model.bin?download=true
+
+# Pythia-410M
+https://huggingface.co/EleutherAI/pythia-410m/resolve/main/pytorch_model.bin?download=true
+
+# Pythia-1B
+https://huggingface.co/EleutherAI/pythia-1b/resolve/main/pytorch_model.bin?download=true
+
+# Pythia-2.8B
+https://huggingface.co/EleutherAI/pythia-2.8b/resolve/main/pytorch_model.bin?download=true
+
+```
 
 ### Running
 

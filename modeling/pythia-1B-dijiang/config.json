@@ -3,8 +3,8 @@
     "GPTNeoXForCausalLM"
   ],
   "auto_map": {
-	                  "AutoModelForCausalLM": "modeling_gpt_neox.GPTNeoXForCausalLM",
-			                      "AutoModelForSequenceClassification": "modeling_gpt_neox.GPTNeoXForSequenceClassification"
+	                  "AutoModelForCausalLM": "modeling_gpt_neox_dijiang.GPTNeoXForCausalLM",
+			                      "AutoModelForSequenceClassification": "modeling_gpt_neox_dijiang.GPTNeoXForSequenceClassification"
   },
   "bos_token_id": 0,
   "eos_token_id": 0,
