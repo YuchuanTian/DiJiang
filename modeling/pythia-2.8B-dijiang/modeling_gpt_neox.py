@@ -84,7 +84,7 @@ class GPTNeoXPreTrainedModel(PreTrainedModel):
     #        module.gradient_checkpointing = value
 
 class GPTNeoXAttention(nn.Module):
-    def __init__(self, config, gamma):
+    def __init__(self, config):
         super().__init__()
         self.config = config
         self.num_attention_heads = config.num_attention_heads
@@ -154,12 +154,12 @@ class GPTNeoXAttention(nn.Module):
     def _get_D1(self, sequence_length):
         D = ((1 - torch.exp(torch.linspace(math.log(1/32), math.log(1/512), self.num_attention_heads))).view(self.num_attention_heads, 1, 1) ** (torch.arange(sequence_length).unsqueeze(1))).float().unsqueeze(0)
 
-        return nn.Parameter(D, requires_grad=False)
+        return nn.Parameter(D)
     
     def _get_D2(self, sequence_length):
         D = 1/((1 - torch.exp(torch.linspace(math.log(1/32), math.log(1/512), self.num_attention_heads))).view(self.num_attention_heads, 1, 1) ** (torch.arange(sequence_length).unsqueeze(1))).float().unsqueeze(0)
 
-        return nn.Parameter(D, requires_grad=False)
+        return nn.Parameter(D)
 
     def _get_mask(self, sequence_length):
         n = torch.arange(sequence_length).unsqueeze(1)
@@ -440,14 +440,14 @@ class GPTNeoXMLP(nn.Module):
 
 
 class GPTNeoXLayer(nn.Module):
-    def __init__(self, config, gamma):
+    def __init__(self, config):
         super().__init__()
         self.use_parallel_residual = config.use_parallel_residual
         self.input_layernorm = nn.LayerNorm(config.hidden_size, eps=config.layer_norm_eps)
         self.post_attention_layernorm = nn.LayerNorm(config.hidden_size, eps=config.layer_norm_eps)
         self.post_attention_dropout = nn.Dropout(config.hidden_dropout)
         self.post_mlp_dropout = nn.Dropout(config.hidden_dropout)
-        self.attention = GPTNeoXAttention(config, gamma)
+        self.attention = GPTNeoXAttention(config)
         self.mlp = GPTNeoXMLP(config)
 
     def forward(
@@ -560,8 +560,7 @@ class GPTNeoXModel(GPTNeoXPreTrainedModel):
 
         self.embed_in = nn.Embedding(config.vocab_size, config.hidden_size)
         self.emb_dropout = nn.Dropout(config.hidden_dropout)
-        self.gammas = (1 - torch.exp(torch.linspace(math.log(1/32), math.log(1/512), config.num_hidden_layers))).detach().cpu().tolist()
-        self.layers = nn.ModuleList([GPTNeoXLayer(config, gamma) for gamma in self.gammas])
+        self.layers = nn.ModuleList([GPTNeoXLayer(config) for _ in range(config.num_hidden_layers)])
         self.final_layer_norm = nn.LayerNorm(config.hidden_size, eps=config.layer_norm_eps)
 
         self.gradient_checkpointing = False
