@@ -74,6 +74,8 @@ We acknowledge the authors of the following repos:
 
 [Pythia (EleutherAI)](https://huggingface.co/docs/transformers/main/model_doc/llama2#usage-tips)
 
+[RetNet (Microsoft)](https://github.com/microsoft/torchscale/tree/main)
+
 [Transformersscale (Microsoft)](https://github.com/microsoft/transformersscale/tree/main)
 
 [Stanford Alpaca (Stanford)](https://github.com/tatsu-lab/stanford_alpaca)
