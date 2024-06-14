@@ -4,6 +4,7 @@
 <a href="https://arxiv.org/abs/2403.19928" alt="arXiv">
     <img src="https://img.shields.io/badge/arXiv-2403.19928-b31b1b.svg?style=flat" /></a>
 </p>
+
 ## News
 
 **6/14/2024** Our work DiJiang is accepted as **ICML'24 Oral**!🎉🎉🎉
